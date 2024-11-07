@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress # Moet dezelfde zijn als in deployment.yaml
+spec:
+  selector:
+    app: wordpress
+  type: ClusterIP
+  ports:
+  - name: wordpress
+    protocol: TCP
+    port: 80 #listing port 
+    targetPort:  80 #forwarding port, 80 omdat 80 in deployment.yaml
